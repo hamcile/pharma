@@ -111,3 +111,21 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+@keyframes slide-lr {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-lr {
+  animation: slide-lr 14s linear infinite;
+}
