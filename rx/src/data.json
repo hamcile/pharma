@@ -1,0 +1,40 @@
+{
+  "brand": {
+    "name": "RX Pharma"
+  },
+  "navLinks": [
+    { "name": "Home", "to": "/" },
+    { "name": "About Us", "to": "/about" },
+    { "name": "Contact", "to": "/contact" }
+  ],
+  "socialLinks": [
+    { "name": "Instagram", "href": "https://instagram.com" },
+    { "name": "LinkedIn", "href": "https://linkedin.com" },
+    { "name": "Twitter", "href": "https://twitter.com" }
+  ],
+  "contact": {
+    "hq": "123 Remedy Lane, Springfield, IL 62704",
+    "email": "support@rxpharma.example",
+    "phone": "(555) 012-3456"
+  },
+  "funFact": "RX Pharma packages over 7,500 personalized prescriptions a month with a 99.9% accuracy rate and ships them in sustainable packaging.",
+  "pages": {
+    "home": {
+      "title": "Welcome to RX Pharma",
+      "intro": "RX Pharma brings pharmacy-grade precision to every prescription, blending care, compliance, and convenience for patients and healthcare partners.",
+      "whatWeDoTitle": "What we do",
+      "whatWeDo": "From specialty compounds to everyday refills, our team makes sure every order is checked, packaged, and shipped safely. Scroll down to reach our footer and see the animated business fun fact."
+    },
+    "about": {
+      "title": "About RX Pharma",
+      "paragraphs": [
+        "RX Pharma delivers precision-compounded care with an emphasis on safety, compliance, and patient-first service.",
+        "Our pharmacists combine modern pharmacy technology with personalized support to make healthcare easier for patients and providers."
+      ]
+    },
+    "contact": {
+      "title": "Contact RX Pharma",
+      "intro": "Reach out to our pharmacy team for prescription questions, refill requests, or specialty compound support."
+    }
+  }
+}
