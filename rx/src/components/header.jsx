@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import data from '../data.json'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -16,11 +17,11 @@ function Header() {
   const navLinks = data.navLinks
 
   return (
-    <header className="sticky top-0 z-100 bg-white shadow-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
+    <header className="sticky top-0 z-100 bg-white">
+      <div className="w-full px-4 sm:px-6 lg:px-12 py-4 flex justify-between items-center">
         {/* Brand/Logo */}
         <Link to="/">
-          <h1 className="text-2xl lg:text-3xl font-bold text-gray-800 tracking-tight hover:text-blue-500 transition-colors duration-300 cursor-pointer">
+          <h1 className="m-0 text-2xl lg:text-3xl font-bold text-gray-800 tracking-normal px-3 py-2 rounded-lg border border-transparent hover:border-gray-300 transition-all duration-300 cursor-pointer">
             {data.brand.name}
           </h1>
         </Link>
@@ -28,16 +29,21 @@ function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex gap-8 lg:gap-10">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to
+              return (
               <li key={link.name}>
                 <Link
                   to={link.to}
-                  className="text-gray-700 font-medium text-base lg:text-lg hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500 transition-all duration-300 pb-1"
+                  className={`text-gray-700 font-medium text-base lg:text-lg px-3 py-2 rounded-lg border transition-all duration-300 ${
+                    isActive ? 'border-gray-300' : 'border-transparent hover:border-gray-300'
+                  }`}
                 >
                   {link.name}
                 </Link>
               </li>
-            ))}
+              )
+            })}
           </ul>
         </nav>
 
@@ -70,17 +76,22 @@ function Header() {
       {isMenuOpen && (
         <nav className="md:hidden bg-gray-50 border-t border-gray-200 animate-in slide-in-from-top duration-300">
           <ul className="flex flex-col px-4 sm:px-6 py-3">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to
+              return (
               <li key={link.name}>
                 <Link
                   to={link.to}
-                  className="block text-gray-700 font-medium py-3 border-b border-gray-200 hover:text-blue-500 transition-colors duration-300 last:border-b-0"
+                  className={`block text-gray-700 font-medium py-3 px-3 rounded-lg border transition-all duration-300 ${
+                    isActive ? 'border-gray-300' : 'border-transparent hover:border-gray-300'
+                  }`}
                   onClick={closeMenu}
                 >
                   {link.name}
                 </Link>
               </li>
-            ))}
+              )
+            })}
           </ul>
         </nav>
       )}
